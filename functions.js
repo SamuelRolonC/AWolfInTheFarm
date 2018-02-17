@@ -72,18 +72,39 @@ function goesRight() {
 }
 
 function playerMovement(e) {
+
   switch (e.keyCode) {
     case keys.UP:
-      moveUp = true
+      if (lobo.y - moveSpd >= 0) {
+        moveUp = true
+      }
+      else {
+        lobo.y -= lobo.y - 0
+      }
       break;
     case keys.DOWN:
-      moveDown = true
+      if ((lobo.y + lobo.height) + moveSpd <= mapHeight) {
+        moveDown = true
+      }
+      else {
+        lobo.y += mapHeight - (lobo.y + lobo.height)
+      }
       break;
     case keys.LEFT:
-      moveLeft = true
+      if (lobo.x - moveSpd >= 0) {
+        moveLeft = true
+      }
+      else {
+        lobo.x -= lobo.x - 0
+      }
       break;
     case keys.RIGHT:
-      moveRight = true
+      if ((lobo.x + lobo.width) + moveSpd <= mapWidth) {
+        moveRight = true
+      }
+      else {
+        lobo.x += mapWidth - (lobo.x + lobo.height)
+      }
       break;
   }
 
@@ -130,17 +151,24 @@ function playerMovement(e) {
 
   if (vaca.live && calcCollision(lobo,vaca)) {
     vaca.live = false
+    score += 1
+    document.getElementById("score").innerHTML =  "Puntos: " + score
     draw()
   }
   if (cerdo.live && calcCollision(lobo,cerdo)) {
     cerdo.live = false
+    score += 1
+    document.getElementById("score").innerHTML =  "Puntos: " + score
     draw()
   }
   if (pollo.live && calcCollision(lobo,pollo)) {
     pollo.live = false
+    score += 1
+    document.getElementById("score").innerHTML =  "Puntos: " + score
     draw()
   }
 }
+
 
 function deactivateMovement(e) {
   switch (e.keyCode) {
@@ -171,9 +199,12 @@ function calcCollision(obj1, obj2) {
 var canvas = document.getElementById("villaplatzi")
 var paper = canvas.getContext("2d")
 
-var moveSpd = 10
+var mapWidth = 500
+var mapHeight = 500
 
+var moveSpd = 10
 var moveUp=moveDown=moveLeft=moveRight=false
+var score = 0
 
 
 class Animal {

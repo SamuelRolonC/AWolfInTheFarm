@@ -239,16 +239,16 @@ fondo.image = new Image()
 fondo.image.src = fondo.url
 fondo.image.addEventListener("load", cargarFondo)
 
-vaca = new Animal(myRandom(0,300),myRandom(0,300), 80, 80, "medias/vaca.png","vaca")
+vaca = new Animal(myRandom(0,300),myRandom(0,300), 80, 60, "medias/vaca.png","vaca")
 vaca.image.addEventListener("load", cargarVaca)
 
-cerdo = new Animal(myRandom(0,300),myRandom(0,300), 80, 80, "medias/cerdo.png","cerdo")
+cerdo = new Animal(myRandom(0,300),myRandom(0,300), 60, 50, "medias/cerdo.png","cerdo")
 cerdo.image.addEventListener("load", cargarCerdo)
 
-pollo = new Animal(myRandom(0,300),myRandom(0,300), 80, 80, "medias/pollo.png","pollo")
+pollo = new Animal(myRandom(0,300),myRandom(0,300), 40, 40, "medias/pollo.png","pollo")
 pollo.image.addEventListener("load", cargarPollo)
 
-lobo = new Animal(myRandom(0,300),myRandom(0,300), 64, 64, "medias/lobo.png","lobo")
+lobo = new Animal(myRandom(0,300),myRandom(0,300), 64, 44, "medias/lobo.png","lobo")
 lobo.image.addEventListener("load", cargarLobo)
 
 document.addEventListener("keydown", playerMovement)
